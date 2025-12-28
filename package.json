@@ -19,7 +19,7 @@
     "static-site-generator",
     "open-source"
   ],
-  "author": "",
+  "author": "devrohit06",
   "license": "ISC",
   "dependencies": {
     "@astrojs/mdx": "^3.1.0",
