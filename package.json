@@ -21,6 +21,9 @@
   ],
   "author": "devrohit06",
   "license": "ISC",
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "@astrojs/mdx": "^3.1.0",
     "@clack/prompts": "^0.11.0",
