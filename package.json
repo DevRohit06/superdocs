@@ -1,6 +1,6 @@
 {
   "name": "@devrohit06/superdocs",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "The open-source Mintlify alternative. Beautiful documentation sites from Markdown.",
   "main": "src/index.js",
   "type": "module",

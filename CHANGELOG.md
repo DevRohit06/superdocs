@@ -5,6 +5,31 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.3.0] - 2026-01-01
+
+### Added
+
+- **GitHub-Hosted Templates**: Fetch templates directly from GitHub repositories
+  - Use `--template github:owner/repo` to specify a GitHub template
+  - Support for specific branches/tags: `github:owner/repo#v1.0.0`
+  - Support for subdirectories: `github:owner/repo/path/to/template`
+- **Template Caching**: Templates are cached locally for 24 hours in `~/.superdocs/templates/`
+- **Template Management Commands**:
+  - `superdocs template list` - List available templates
+  - `superdocs template cache --clear` - Clear template cache
+- **Force Refresh**: Use `--refresh` flag to bypass cache and re-download templates
+- **Local Templates**: Use local template folders with `--template ./path/to/template`
+- **Template Registry**: Shorthand names for official templates
+
+### Changed
+
+- Renamed `--theme` option to `--template` for clarity
+- Default template now fetched from GitHub instead of bundled
+
+### Removed
+
+- Bundled template (now fetched from `github:DevRohit06/superdocs-default-template`)
+
 ## [0.2.2] - 2025-12-29
 
 ### Fixed

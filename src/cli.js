@@ -11,7 +11,7 @@ export async function cli() {
   program
     .name('superdocs')
     .description('The open-source Mintlify alternative. Beautiful docs from Markdown.')
-    .version('0.2.0');
+    .version('0.3.0');
 
   program
     .command('build')
