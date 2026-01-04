@@ -1,6 +1,6 @@
 # Lito
 
-The open-source Mintlify alternative. Beautiful documentation sites from Markdown.
+Beautiful documentation sites from Markdown. Fast, simple, and open-source.
 
 ## Features
 
@@ -17,9 +17,9 @@ The open-source Mintlify alternative. Beautiful documentation sites from Markdow
 ### Global Installation
 
 ```bash
-npm install -g lito
+npm install -g @litodocs/cli
 # or
-pnpm add -g lito
+pnpm add -g @litodocs/cli
 ```
 
 ### Local Development
@@ -253,7 +253,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## License
 
-ISC
+MIT
 
 ---
 

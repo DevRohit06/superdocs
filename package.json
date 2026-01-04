@@ -1,5 +1,5 @@
 {
-  "name": "@lito/cli",
+  "name": "@litodocs/cli",
   "version": "0.5.0",
   "description": "Beautiful documentation sites from Markdown. Fast, simple, and open-source.",
   "main": "src/index.js",
