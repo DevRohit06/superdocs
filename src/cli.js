@@ -12,11 +12,11 @@ export async function cli() {
   const program = new Command();
 
   program
-    .name("superdocs")
+    .name("lito")
     .description(
-      "The open-source Mintlify alternative. Beautiful docs from Markdown."
+      "Beautiful documentation sites from Markdown. Fast, simple, and open-source."
     )
-    .version("0.3.5");
+    .version("0.5.0");
 
   program
     .command("build")
@@ -39,6 +39,8 @@ export async function cli() {
     .option("--accent-color <color>", "Accent theme color (hex)")
     .option("--favicon <path>", "Favicon path")
     .option("--logo <path>", "Logo path")
+    .option("--provider <name>", "Hosting provider optimization (vercel, netlify, cloudflare, static)", "static")
+    .option("--rendering <type>", "Rendering mode (static, server, hybrid)", "static")
     .option("--search", "Enable search functionality", false)
     .option("--refresh", "Force re-download template (bypass cache)", false)
     .action(buildCommand);
