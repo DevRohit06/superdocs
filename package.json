@@ -1,11 +1,11 @@
 {
-  "name": "@devrohit06/superdocs",
-  "version": "0.3.5",
-  "description": "The open-source Mintlify alternative. Beautiful documentation sites from Markdown.",
+  "name": "lito",
+  "version": "0.5.0",
+  "description": "Beautiful documentation sites from Markdown. Fast, simple, and open-source.",
   "main": "src/index.js",
   "type": "module",
   "bin": {
-    "superdocs": "./bin/cli.js"
+    "lito": "./bin/cli.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
