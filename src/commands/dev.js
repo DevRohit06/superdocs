@@ -20,7 +20,7 @@ export async function devCommand(options) {
     }
 
     console.clear();
-    intro(pc.inverse(pc.cyan(' SuperDocs - Dev Server ')));
+    intro(pc.inverse(pc.cyan(' Lito - Dev Server ')));
 
     const s = spinner();
 
@@ -44,22 +44,19 @@ export async function devCommand(options) {
     process.on('SIGINT', cleanup);
     process.on('SIGTERM', cleanup);
 
-    // Step 2: Install dependencies
+    // Step 2: Prepare project (Install dependencies, Sync docs, Generate navigation)
     const { installDependencies } = await import('../core/package-manager.js');
-    s.start('Installing dependencies...');
-    await installDependencies(projectDir, { silent: true });
-    s.stop('Dependencies installed');
+    s.start('Preparing project (installing dependencies, syncing files)...');
 
-    // Step 3: Sync docs to Astro
-    s.start('Syncing documentation files...');
-    await syncDocs(inputPath, projectDir);
-    s.stop('Documentation synced');
-
-    // Step 3.5: Sync docs config (auto-generate navigation)
-    s.start('Generating navigation...');
     const userConfigPath = resolve(options.input, 'docs-config.json');
-    await syncDocsConfig(projectDir, inputPath, userConfigPath);
-    s.stop('Navigation generated');
+
+    await Promise.all([
+      installDependencies(projectDir, { silent: true }),
+      syncDocs(inputPath, projectDir),
+      syncDocsConfig(projectDir, inputPath, userConfigPath)
+    ]);
+
+    s.stop('Project prepared (dependencies installed, docs synced, navigation generated)');
 
     // Step 4: Generate config
     s.start('Generating Astro configuration...');
@@ -84,8 +81,11 @@ export async function devCommand(options) {
         isSyncing = true;
 
         try {
-          await syncDocs(inputPath, projectDir);
-          log.success('Documentation re-synced');
+          await Promise.all([
+            syncDocs(inputPath, projectDir),
+            syncDocsConfig(projectDir, inputPath, userConfigPath)
+          ]);
+          log.success('Documentation and config re-synced');
         } catch (error) {
           log.error('Sync failed: ' + error.message);
         } finally {
