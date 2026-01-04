@@ -7,16 +7,20 @@ import {
   templateListCommand,
   templateCacheCommand,
 } from "./commands/template.js";
+import { checkForUpdates, upgradeCommand } from "./core/update-check.js";
 
 export async function cli() {
   const program = new Command();
+
+  // Check for updates in the background (non-blocking)
+  checkForUpdates();
 
   program
     .name("lito")
     .description(
       "Beautiful documentation sites from Markdown. Fast, simple, and open-source."
     )
-    .version("0.5.1");
+    .version("0.5.2");
 
   program
     .command("build")
@@ -106,6 +110,11 @@ export async function cli() {
     .description("Manage template cache")
     .option("--clear", "Clear all cached templates")
     .action(templateCacheCommand);
+
+  program
+    .command("upgrade")
+    .description("Check for updates and upgrade to the latest version")
+    .action(upgradeCommand);
 
   try {
     await program.parseAsync(process.argv);
